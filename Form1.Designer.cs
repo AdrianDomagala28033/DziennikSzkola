@@ -35,22 +35,22 @@ namespace MiniDziennik
             this.klasaLabel = new System.Windows.Forms.Label();
             this.sqliteCommand1 = new Microsoft.Data.Sqlite.SqliteCommand();
             this.Rok = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.imieTextBox = new System.Windows.Forms.TextBox();
+            this.nazwiskoTextBox = new System.Windows.Forms.TextBox();
             this.klasyComboBox = new System.Windows.Forms.ComboBox();
             this.dataUrodzeniaNumeric = new System.Windows.Forms.NumericUpDown();
             this.szukajButton = new System.Windows.Forms.Button();
             this.listaUczniowLabel = new System.Windows.Forms.Label();
             this.tabelaUczniowGridView = new System.Windows.Forms.DataGridView();
+            this.ImieColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NazwiskoColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KlasaColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RokUrodzeniaColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dodajButton = new System.Windows.Forms.Button();
             this.edytujButton = new System.Windows.Forms.Button();
             this.usunButton = new System.Windows.Forms.Button();
             this.dodajKlaseButton = new System.Windows.Forms.Button();
             this.operacjeLabel = new System.Windows.Forms.Label();
-            this.ImieColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NazwiskoColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.KlasaColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RokUrodzeniaColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataUrodzeniaNumeric)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabelaUczniowGridView)).BeginInit();
             this.SuspendLayout();
@@ -107,19 +107,19 @@ namespace MiniDziennik
             this.Rok.TabIndex = 4;
             this.Rok.Text = "Rok";
             // 
-            // textBox1
+            // imieTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 60);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 23);
-            this.textBox1.TabIndex = 5;
+            this.imieTextBox.Location = new System.Drawing.Point(12, 60);
+            this.imieTextBox.Name = "imieTextBox";
+            this.imieTextBox.Size = new System.Drawing.Size(100, 23);
+            this.imieTextBox.TabIndex = 5;
             // 
-            // textBox2
+            // nazwiskoTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(154, 60);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 23);
-            this.textBox2.TabIndex = 6;
+            this.nazwiskoTextBox.Location = new System.Drawing.Point(154, 60);
+            this.nazwiskoTextBox.Name = "nazwiskoTextBox";
+            this.nazwiskoTextBox.Size = new System.Drawing.Size(100, 23);
+            this.nazwiskoTextBox.TabIndex = 6;
             // 
             // klasyComboBox
             // 
@@ -160,6 +160,7 @@ namespace MiniDziennik
             this.szukajButton.TabIndex = 9;
             this.szukajButton.Text = "Szukaj";
             this.szukajButton.UseVisualStyleBackColor = true;
+            this.szukajButton.Click += new System.EventHandler(this.szukajButton_Click);
             // 
             // listaUczniowLabel
             // 
@@ -184,6 +185,30 @@ namespace MiniDziennik
             this.tabelaUczniowGridView.Size = new System.Drawing.Size(668, 335);
             this.tabelaUczniowGridView.TabIndex = 11;
             // 
+            // ImieColumn
+            // 
+            this.ImieColumn.DataPropertyName = "Imie";
+            this.ImieColumn.HeaderText = "Imię";
+            this.ImieColumn.Name = "ImieColumn";
+            // 
+            // NazwiskoColumn
+            // 
+            this.NazwiskoColumn.DataPropertyName = "Nazwisko";
+            this.NazwiskoColumn.HeaderText = "Nazwisko";
+            this.NazwiskoColumn.Name = "NazwiskoColumn";
+            // 
+            // KlasaColumn
+            // 
+            this.KlasaColumn.DataPropertyName = "Klasa";
+            this.KlasaColumn.HeaderText = "Klasa";
+            this.KlasaColumn.Name = "KlasaColumn";
+            // 
+            // RokUrodzeniaColumn
+            // 
+            this.RokUrodzeniaColumn.DataPropertyName = "RokUrodzenia";
+            this.RokUrodzeniaColumn.HeaderText = "Rok urodzenia";
+            this.RokUrodzeniaColumn.Name = "RokUrodzeniaColumn";
+            // 
             // dodajButton
             // 
             this.dodajButton.Location = new System.Drawing.Point(652, 144);
@@ -192,6 +217,7 @@ namespace MiniDziennik
             this.dodajButton.TabIndex = 12;
             this.dodajButton.Text = "Dodaj";
             this.dodajButton.UseVisualStyleBackColor = true;
+            this.dodajButton.Click += new System.EventHandler(this.dodajButton_Click);
             // 
             // edytujButton
             // 
@@ -219,6 +245,7 @@ namespace MiniDziennik
             this.dodajKlaseButton.TabIndex = 15;
             this.dodajKlaseButton.Text = "Dodaj klasę";
             this.dodajKlaseButton.UseVisualStyleBackColor = true;
+            this.dodajKlaseButton.Click += new System.EventHandler(this.dodajKlaseButton_Click);
             // 
             // operacjeLabel
             // 
@@ -228,30 +255,6 @@ namespace MiniDziennik
             this.operacjeLabel.Size = new System.Drawing.Size(54, 15);
             this.operacjeLabel.TabIndex = 16;
             this.operacjeLabel.Text = "Operacje";
-            // 
-            // ImieColumn
-            // 
-            this.ImieColumn.DataPropertyName = "Imie";
-            this.ImieColumn.HeaderText = "Imię";
-            this.ImieColumn.Name = "ImieColumn";
-            // 
-            // NazwiskoColumn
-            // 
-            this.NazwiskoColumn.DataPropertyName = "Nazwisko";
-            this.NazwiskoColumn.HeaderText = "Nazwisko";
-            this.NazwiskoColumn.Name = "NazwiskoColumn";
-            // 
-            // KlasaColumn
-            // 
-            this.KlasaColumn.DataPropertyName = "Klasa";
-            this.KlasaColumn.HeaderText = "Klasa";
-            this.KlasaColumn.Name = "KlasaColumn";
-            // 
-            // RokUrodzeniaColumn
-            // 
-            this.RokUrodzeniaColumn.DataPropertyName = "RokUrodzenia";
-            this.RokUrodzeniaColumn.HeaderText = "Rok urodzenia";
-            this.RokUrodzeniaColumn.Name = "RokUrodzeniaColumn";
             // 
             // Form1
             // 
@@ -268,8 +271,8 @@ namespace MiniDziennik
             this.Controls.Add(this.szukajButton);
             this.Controls.Add(this.dataUrodzeniaNumeric);
             this.Controls.Add(this.klasyComboBox);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.nazwiskoTextBox);
+            this.Controls.Add(this.imieTextBox);
             this.Controls.Add(this.Rok);
             this.Controls.Add(this.klasaLabel);
             this.Controls.Add(this.nazwiskoLabel);
@@ -292,8 +295,8 @@ namespace MiniDziennik
         private System.Windows.Forms.Label klasaLabel;
         private Microsoft.Data.Sqlite.SqliteCommand sqliteCommand1;
         private System.Windows.Forms.Label Rok;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox imieTextBox;
+        private System.Windows.Forms.TextBox nazwiskoTextBox;
         private System.Windows.Forms.ComboBox klasyComboBox;
         private System.Windows.Forms.NumericUpDown dataUrodzeniaNumeric;
         private System.Windows.Forms.Button szukajButton;

@@ -54,3 +54,4 @@ C:\Users\user\source\repos\MiniDziennik\obj\Debug\net5.0-windows\ref\MiniDzienni
 C:\Users\user\source\repos\MiniDziennik\obj\Debug\net5.0-windows\MiniDziennik.pdb
 C:\Users\user\source\repos\MiniDziennik\obj\Debug\net5.0-windows\MiniDziennik.genruntimeconfig.cache
 C:\Users\user\source\repos\MiniDziennik\bin\Debug\net5.0-windows\bazaMiniDziennik.db
+C:\Users\user\source\repos\MiniDziennik\obj\Debug\net5.0-windows\MiniDziennik.Okienka.OknoDodajKlase.resources

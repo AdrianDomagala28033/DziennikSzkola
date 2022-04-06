@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MiniDziennik.Context;
 using MiniDziennik.Model;
+using MiniDziennik.Okienka;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,6 +31,11 @@ namespace MiniDziennik
         private void UzupelnijListeKlas()
         {
             List<Klasa> listaKlas = sqlContext.Klasa.ToList();
+            listaKlas.Insert(0, new Klasa()
+            {
+                Id = 0,
+                NazwaKlasy = "<Wszystkie>"
+            });
             klasyComboBox.DataSource = listaKlas;
             klasyComboBox.DisplayMember = "NazwaKlasy";
         }
@@ -127,6 +133,55 @@ namespace MiniDziennik
                 KlasaId = 1
             });
             sqlContext.SaveChanges();
+        }
+
+        private void dodajButton_Click(object sender, EventArgs e)
+        {
+            DodajEdytujOkno oknoDodajEdytuj = new DodajEdytujOkno();
+
+            if(oknoDodajEdytuj.ShowDialog() == DialogResult.OK)
+            {
+
+            }
+
+        }
+
+        private void szukajButton_Click(object sender, EventArgs e)
+        {
+            var listaFiltrowana = sqlContext.Uczniowie.Include(x => x.Klasa);
+            Klasa klasyUczniow = klasyComboBox.SelectedItem as Klasa;
+            String imieUcznia = imieTextBox.Text;
+            String nazwiskoUcznia = nazwiskoTextBox.Text;
+            int rokUrodzenia = (int)dataUrodzeniaNumeric.Value;
+            String rokUrodzeniaStr = dataUrodzeniaNumeric.Text;
+            tabelaUczniowGridView.DataSource = listaFiltrowana.Where(x => klasyUczniow.Id == 0 || x.KlasaId == klasyUczniow.Id)
+            .Where(x => x.Imie == imieUcznia || imieUcznia == "")
+            .Where(x => x.Nazwisko == nazwiskoUcznia || nazwiskoUcznia == "")
+            .Where(x => x.RokUrodzenia == rokUrodzenia || rokUrodzeniaStr == "")
+            .Select(x => new UczniowieKlasy
+            {
+                Id = x.Id,
+                Imie = x.Imie,
+                Nazwisko = x.Nazwisko,
+                Klasa = x.Klasa.NazwaKlasy,
+                RokUrodzenia = x.RokUrodzenia
+            }).ToList();
+            
+        }
+
+        private void dodajKlaseButton_Click(object sender, EventArgs e)
+        {
+            OknoDodajKlase oknoDodajKlase = new OknoDodajKlase();
+
+            if (oknoDodajKlase.ShowDialog() == DialogResult.OK)
+            {
+                sqlContext.Klasa.Add(new Klasa()
+                {
+                    NazwaKlasy = oknoDodajKlase.NazwaKlasy
+                });
+                sqlContext.SaveChanges();
+                UzupelnijListeKlas();
+            }
         }
     }
 }
