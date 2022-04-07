@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MiniDziennik.Context;
+using MiniDziennik.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,7 @@ namespace MiniDziennik.Okienka
 {
     public partial class DodajEdytujOkno : Form
     {
+        SqlContext sqlContext;
         public String Imie { get {
                 return imieTextBoxDE.Text;
             } }
@@ -22,10 +25,42 @@ namespace MiniDziennik.Okienka
                 return nazwiskoTextBoxDE.Text;
             }
         }
-        
-        public DodajEdytujOkno()
+        public String KlasaNazwa
         {
+            get
+            {
+                Klasa nazwaKlasy = klasaComboBoxDE.SelectedItem as Klasa;
+                return sqlContext.Klasa.Where(k => k.NazwaKlasy == nazwaKlasy.NazwaKlasy).FirstOrDefault().NazwaKlasy;
+            }
+        }
+        public int RokUrodzenia
+        {
+            get
+            {
+                return (int)rokUrodzeniaNumericDE.Value;
+            }
+        }
+        public int KlasaId { get
+            {
+                Klasa klasaId = klasaComboBoxDE.SelectedItem as Klasa;
+                return sqlContext.Klasa.Where(k => k.Id == klasaId.Id).FirstOrDefault().Id;
+            }
+         }
+        
+        public DodajEdytujOkno(String guzik)
+        {
+            sqlContext = new SqlContext();
             InitializeComponent();
+            dodajUczniaButtonDE.Text = guzik;
+            UzupelnijListeKlas();
+        }
+
+        private void UzupelnijListeKlas()
+        {
+            List<Klasa> listaKlas = sqlContext.Klasa.ToList();
+            
+            klasaComboBoxDE.DataSource = listaKlas;
+            klasaComboBoxDE.DisplayMember = "NazwaKlasy";
         }
 
         private void dodajUczniaButtonDE_Click(object sender, EventArgs e)

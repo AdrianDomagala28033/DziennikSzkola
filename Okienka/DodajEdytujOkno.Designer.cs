@@ -94,6 +94,7 @@ namespace MiniDziennik.Okienka
             // 
             // klasaComboBoxDE
             // 
+            this.klasaComboBoxDE.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.klasaComboBoxDE.FormattingEnabled = true;
             this.klasaComboBoxDE.Location = new System.Drawing.Point(368, 74);
             this.klasaComboBoxDE.Name = "klasaComboBoxDE";
@@ -103,9 +104,24 @@ namespace MiniDziennik.Okienka
             // rokUrodzeniaNumericDE
             // 
             this.rokUrodzeniaNumericDE.Location = new System.Drawing.Point(543, 75);
+            this.rokUrodzeniaNumericDE.Maximum = new decimal(new int[] {
+            9000000,
+            0,
+            0,
+            0});
+            this.rokUrodzeniaNumericDE.Minimum = new decimal(new int[] {
+            1900,
+            0,
+            0,
+            0});
             this.rokUrodzeniaNumericDE.Name = "rokUrodzeniaNumericDE";
             this.rokUrodzeniaNumericDE.Size = new System.Drawing.Size(141, 23);
             this.rokUrodzeniaNumericDE.TabIndex = 7;
+            this.rokUrodzeniaNumericDE.Value = new decimal(new int[] {
+            1900,
+            0,
+            0,
+            0});
             // 
             // dodajUczniaButtonDE
             // 

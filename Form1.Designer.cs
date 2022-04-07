@@ -227,6 +227,7 @@ namespace MiniDziennik
             this.edytujButton.TabIndex = 13;
             this.edytujButton.Text = "Edytuj";
             this.edytujButton.UseVisualStyleBackColor = true;
+            this.edytujButton.Click += new System.EventHandler(this.edytujButton_Click);
             // 
             // usunButton
             // 

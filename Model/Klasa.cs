@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MiniDziennik.Model
 {
-    class Klasa
+    public class Klasa
     {
         public int Id { get; set; }
         public String NazwaKlasy { get; set; }
