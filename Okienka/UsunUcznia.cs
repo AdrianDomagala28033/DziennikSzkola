@@ -12,24 +12,29 @@ using System.Windows.Forms;
 
 namespace MiniDziennik.Okienka
 {
-    public partial class DodajEdytujOkno : Form
+    public partial class UsunUcznia : Form
     {
+
         SqlContext sqlContext;
-        public String Imie { get {
-                return imieTextBoxDE.Text;
-            } }
+        public String Imie
+        {
+            get
+            {
+                return imieTextBoxU.Text;
+            }
+        }
         public String Nazwisko
         {
             get
             {
-                return nazwiskoTextBoxDE.Text;
+                return nazwiskoTextBoxU.Text;
             }
         }
-        public String KlasaNazwa
+        public String Klasa
         {
             get
             {
-                Klasa nazwaKlasy = klasaComboBoxDE.SelectedItem as Klasa;
+                Klasa nazwaKlasy = klasaComboBoxU.SelectedItem as Klasa;
                 return sqlContext.Klasa.Where(k => k.NazwaKlasy == nazwaKlasy.NazwaKlasy).FirstOrDefault().NazwaKlasy;
             }
         }
@@ -37,33 +42,25 @@ namespace MiniDziennik.Okienka
         {
             get
             {
-                return (int)rokUrodzeniaNumericDE.Value;
+                return (int)rokUrodzeniaNumericU.Value;
             }
         }
-        public int KlasaId { get
-            {
-                Klasa klasaId = klasaComboBoxDE.SelectedItem as Klasa;
-                return sqlContext.Klasa.Where(k => k.Id == klasaId.Id).FirstOrDefault().Id;
-            }
-         }
-        
-        public DodajEdytujOkno(String guzik)
+
+        public UsunUcznia()
         {
-            sqlContext = new SqlContext();
             InitializeComponent();
-            dodajUczniaButtonDE.Text = guzik;
+            sqlContext = new SqlContext();
             UzupelnijListeKlas();
         }
 
         private void UzupelnijListeKlas()
         {
             List<Klasa> listaKlas = sqlContext.Klasa.ToList();
-            
-            klasaComboBoxDE.DataSource = listaKlas;
-            klasaComboBoxDE.DisplayMember = "NazwaKlasy";
-        }
 
-        private void dodajUczniaButtonDE_Click(object sender, EventArgs e)
+            klasaComboBoxU.DataSource = listaKlas;
+            klasaComboBoxU.DisplayMember = "NazwaKlasy";
+        }
+        private void usunUczniaButtonU_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(Imie) && !string.IsNullOrEmpty(Nazwisko))
             {

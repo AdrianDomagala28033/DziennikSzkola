@@ -10,5 +10,8 @@
     <Compile Update="Okienka\OknoDodajKlase.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Okienka\UsunUcznia.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

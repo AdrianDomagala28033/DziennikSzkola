@@ -58,36 +58,36 @@ namespace MiniDziennik
             // filtryLabel
             // 
             this.filtryLabel.AutoSize = true;
-            this.filtryLabel.Location = new System.Drawing.Point(13, 13);
+            this.filtryLabel.Location = new System.Drawing.Point(15, 17);
             this.filtryLabel.Name = "filtryLabel";
-            this.filtryLabel.Size = new System.Drawing.Size(33, 15);
+            this.filtryLabel.Size = new System.Drawing.Size(41, 20);
             this.filtryLabel.TabIndex = 0;
             this.filtryLabel.Text = "Filtry";
             // 
             // imieLabel
             // 
             this.imieLabel.AutoSize = true;
-            this.imieLabel.Location = new System.Drawing.Point(13, 39);
+            this.imieLabel.Location = new System.Drawing.Point(15, 52);
             this.imieLabel.Name = "imieLabel";
-            this.imieLabel.Size = new System.Drawing.Size(30, 15);
+            this.imieLabel.Size = new System.Drawing.Size(38, 20);
             this.imieLabel.TabIndex = 1;
             this.imieLabel.Text = "Imię";
             // 
             // nazwiskoLabel
             // 
             this.nazwiskoLabel.AutoSize = true;
-            this.nazwiskoLabel.Location = new System.Drawing.Point(154, 39);
+            this.nazwiskoLabel.Location = new System.Drawing.Point(176, 52);
             this.nazwiskoLabel.Name = "nazwiskoLabel";
-            this.nazwiskoLabel.Size = new System.Drawing.Size(57, 15);
+            this.nazwiskoLabel.Size = new System.Drawing.Size(72, 20);
             this.nazwiskoLabel.TabIndex = 2;
             this.nazwiskoLabel.Text = "Nazwisko";
             // 
             // klasaLabel
             // 
             this.klasaLabel.AutoSize = true;
-            this.klasaLabel.Location = new System.Drawing.Point(309, 39);
+            this.klasaLabel.Location = new System.Drawing.Point(353, 52);
             this.klasaLabel.Name = "klasaLabel";
-            this.klasaLabel.Size = new System.Drawing.Size(34, 15);
+            this.klasaLabel.Size = new System.Drawing.Size(44, 20);
             this.klasaLabel.TabIndex = 3;
             this.klasaLabel.Text = "Klasa";
             // 
@@ -101,38 +101,42 @@ namespace MiniDziennik
             // Rok
             // 
             this.Rok.AutoSize = true;
-            this.Rok.Location = new System.Drawing.Point(484, 39);
+            this.Rok.Location = new System.Drawing.Point(553, 52);
             this.Rok.Name = "Rok";
-            this.Rok.Size = new System.Drawing.Size(27, 15);
+            this.Rok.Size = new System.Drawing.Size(34, 20);
             this.Rok.TabIndex = 4;
             this.Rok.Text = "Rok";
             // 
             // imieTextBox
             // 
-            this.imieTextBox.Location = new System.Drawing.Point(12, 60);
+            this.imieTextBox.Location = new System.Drawing.Point(14, 80);
+            this.imieTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.imieTextBox.Name = "imieTextBox";
-            this.imieTextBox.Size = new System.Drawing.Size(100, 23);
+            this.imieTextBox.Size = new System.Drawing.Size(114, 27);
             this.imieTextBox.TabIndex = 5;
             // 
             // nazwiskoTextBox
             // 
-            this.nazwiskoTextBox.Location = new System.Drawing.Point(154, 60);
+            this.nazwiskoTextBox.Location = new System.Drawing.Point(176, 80);
+            this.nazwiskoTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nazwiskoTextBox.Name = "nazwiskoTextBox";
-            this.nazwiskoTextBox.Size = new System.Drawing.Size(100, 23);
+            this.nazwiskoTextBox.Size = new System.Drawing.Size(114, 27);
             this.nazwiskoTextBox.TabIndex = 6;
             // 
             // klasyComboBox
             // 
             this.klasyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.klasyComboBox.FormattingEnabled = true;
-            this.klasyComboBox.Location = new System.Drawing.Point(309, 60);
+            this.klasyComboBox.Location = new System.Drawing.Point(353, 80);
+            this.klasyComboBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.klasyComboBox.Name = "klasyComboBox";
-            this.klasyComboBox.Size = new System.Drawing.Size(121, 23);
+            this.klasyComboBox.Size = new System.Drawing.Size(138, 28);
             this.klasyComboBox.TabIndex = 7;
             // 
             // dataUrodzeniaNumeric
             // 
-            this.dataUrodzeniaNumeric.Location = new System.Drawing.Point(484, 61);
+            this.dataUrodzeniaNumeric.Location = new System.Drawing.Point(553, 81);
+            this.dataUrodzeniaNumeric.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataUrodzeniaNumeric.Maximum = new decimal(new int[] {
             90000,
             0,
@@ -144,7 +148,7 @@ namespace MiniDziennik
             0,
             0});
             this.dataUrodzeniaNumeric.Name = "dataUrodzeniaNumeric";
-            this.dataUrodzeniaNumeric.Size = new System.Drawing.Size(120, 23);
+            this.dataUrodzeniaNumeric.Size = new System.Drawing.Size(137, 27);
             this.dataUrodzeniaNumeric.TabIndex = 8;
             this.dataUrodzeniaNumeric.Value = new decimal(new int[] {
             1900,
@@ -154,9 +158,10 @@ namespace MiniDziennik
             // 
             // szukajButton
             // 
-            this.szukajButton.Location = new System.Drawing.Point(652, 21);
+            this.szukajButton.Location = new System.Drawing.Point(745, 28);
+            this.szukajButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.szukajButton.Name = "szukajButton";
-            this.szukajButton.Size = new System.Drawing.Size(136, 63);
+            this.szukajButton.Size = new System.Drawing.Size(155, 84);
             this.szukajButton.TabIndex = 9;
             this.szukajButton.Text = "Szukaj";
             this.szukajButton.UseVisualStyleBackColor = true;
@@ -165,9 +170,9 @@ namespace MiniDziennik
             // listaUczniowLabel
             // 
             this.listaUczniowLabel.AutoSize = true;
-            this.listaUczniowLabel.Location = new System.Drawing.Point(13, 96);
+            this.listaUczniowLabel.Location = new System.Drawing.Point(15, 128);
             this.listaUczniowLabel.Name = "listaUczniowLabel";
-            this.listaUczniowLabel.Size = new System.Drawing.Size(78, 15);
+            this.listaUczniowLabel.Size = new System.Drawing.Size(97, 20);
             this.listaUczniowLabel.TabIndex = 10;
             this.listaUczniowLabel.Text = "Lista uczniów";
             // 
@@ -179,41 +184,52 @@ namespace MiniDziennik
             this.NazwiskoColumn,
             this.KlasaColumn,
             this.RokUrodzeniaColumn});
-            this.tabelaUczniowGridView.Location = new System.Drawing.Point(-24, 114);
+            this.tabelaUczniowGridView.Location = new System.Drawing.Point(-27, 152);
+            this.tabelaUczniowGridView.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabelaUczniowGridView.Name = "tabelaUczniowGridView";
+            this.tabelaUczniowGridView.RowHeadersWidth = 51;
             this.tabelaUczniowGridView.RowTemplate.Height = 25;
-            this.tabelaUczniowGridView.Size = new System.Drawing.Size(668, 335);
+            this.tabelaUczniowGridView.Size = new System.Drawing.Size(763, 447);
             this.tabelaUczniowGridView.TabIndex = 11;
             // 
             // ImieColumn
             // 
             this.ImieColumn.DataPropertyName = "Imie";
             this.ImieColumn.HeaderText = "Imię";
+            this.ImieColumn.MinimumWidth = 6;
             this.ImieColumn.Name = "ImieColumn";
+            this.ImieColumn.Width = 125;
             // 
             // NazwiskoColumn
             // 
             this.NazwiskoColumn.DataPropertyName = "Nazwisko";
             this.NazwiskoColumn.HeaderText = "Nazwisko";
+            this.NazwiskoColumn.MinimumWidth = 6;
             this.NazwiskoColumn.Name = "NazwiskoColumn";
+            this.NazwiskoColumn.Width = 125;
             // 
             // KlasaColumn
             // 
             this.KlasaColumn.DataPropertyName = "Klasa";
             this.KlasaColumn.HeaderText = "Klasa";
+            this.KlasaColumn.MinimumWidth = 6;
             this.KlasaColumn.Name = "KlasaColumn";
+            this.KlasaColumn.Width = 125;
             // 
             // RokUrodzeniaColumn
             // 
             this.RokUrodzeniaColumn.DataPropertyName = "RokUrodzenia";
             this.RokUrodzeniaColumn.HeaderText = "Rok urodzenia";
+            this.RokUrodzeniaColumn.MinimumWidth = 6;
             this.RokUrodzeniaColumn.Name = "RokUrodzeniaColumn";
+            this.RokUrodzeniaColumn.Width = 125;
             // 
             // dodajButton
             // 
-            this.dodajButton.Location = new System.Drawing.Point(652, 144);
+            this.dodajButton.Location = new System.Drawing.Point(745, 192);
+            this.dodajButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dodajButton.Name = "dodajButton";
-            this.dodajButton.Size = new System.Drawing.Size(136, 63);
+            this.dodajButton.Size = new System.Drawing.Size(155, 84);
             this.dodajButton.TabIndex = 12;
             this.dodajButton.Text = "Dodaj";
             this.dodajButton.UseVisualStyleBackColor = true;
@@ -221,9 +237,10 @@ namespace MiniDziennik
             // 
             // edytujButton
             // 
-            this.edytujButton.Location = new System.Drawing.Point(652, 213);
+            this.edytujButton.Location = new System.Drawing.Point(745, 284);
+            this.edytujButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.edytujButton.Name = "edytujButton";
-            this.edytujButton.Size = new System.Drawing.Size(136, 63);
+            this.edytujButton.Size = new System.Drawing.Size(155, 84);
             this.edytujButton.TabIndex = 13;
             this.edytujButton.Text = "Edytuj";
             this.edytujButton.UseVisualStyleBackColor = true;
@@ -231,18 +248,21 @@ namespace MiniDziennik
             // 
             // usunButton
             // 
-            this.usunButton.Location = new System.Drawing.Point(650, 282);
+            this.usunButton.Location = new System.Drawing.Point(743, 376);
+            this.usunButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.usunButton.Name = "usunButton";
-            this.usunButton.Size = new System.Drawing.Size(136, 63);
+            this.usunButton.Size = new System.Drawing.Size(155, 84);
             this.usunButton.TabIndex = 14;
             this.usunButton.Text = "Usuń";
             this.usunButton.UseVisualStyleBackColor = true;
+            this.usunButton.Click += new System.EventHandler(this.usunButton_Click);
             // 
             // dodajKlaseButton
             // 
-            this.dodajKlaseButton.Location = new System.Drawing.Point(650, 351);
+            this.dodajKlaseButton.Location = new System.Drawing.Point(743, 468);
+            this.dodajKlaseButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dodajKlaseButton.Name = "dodajKlaseButton";
-            this.dodajKlaseButton.Size = new System.Drawing.Size(136, 63);
+            this.dodajKlaseButton.Size = new System.Drawing.Size(155, 84);
             this.dodajKlaseButton.TabIndex = 15;
             this.dodajKlaseButton.Text = "Dodaj klasę";
             this.dodajKlaseButton.UseVisualStyleBackColor = true;
@@ -251,17 +271,17 @@ namespace MiniDziennik
             // operacjeLabel
             // 
             this.operacjeLabel.AutoSize = true;
-            this.operacjeLabel.Location = new System.Drawing.Point(652, 114);
+            this.operacjeLabel.Location = new System.Drawing.Point(745, 152);
             this.operacjeLabel.Name = "operacjeLabel";
-            this.operacjeLabel.Size = new System.Drawing.Size(54, 15);
+            this.operacjeLabel.Size = new System.Drawing.Size(69, 20);
             this.operacjeLabel.TabIndex = 16;
             this.operacjeLabel.Text = "Operacje";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(914, 600);
             this.Controls.Add(this.operacjeLabel);
             this.Controls.Add(this.dodajKlaseButton);
             this.Controls.Add(this.usunButton);
@@ -279,6 +299,7 @@ namespace MiniDziennik
             this.Controls.Add(this.nazwiskoLabel);
             this.Controls.Add(this.imieLabel);
             this.Controls.Add(this.filtryLabel);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataUrodzeniaNumeric)).EndInit();

@@ -135,34 +135,6 @@ namespace MiniDziennik
             sqlContext.SaveChanges();
         }
 
-        private void dodajButton_Click(object sender, EventArgs e)
-        {
-            DodajEdytujOkno oknoDodajEdytuj = new DodajEdytujOkno("Dodaj");
-
-            if(oknoDodajEdytuj.ShowDialog() == DialogResult.OK)
-            {
-                sqlContext.Uczniowie.Add(new Uczniowie()
-                {
-                    Imie = oknoDodajEdytuj.Imie,
-                    Nazwisko = oknoDodajEdytuj.Nazwisko,
-                    Klasa = oknoDodajEdytuj.KlasaNazwa,
-                    KlasaId = oknoDodajEdytuj.KlasaId,
-                    RokUrodzenia = oknoDodajEdytuj.RokUrodzenia
-                }); 
-                sqlContext.SaveChanges();
-            }
-
-        }
-        private void edytujButton_Click(object sender, EventArgs e)
-        {
-            DodajEdytujOkno oknoDodajEdytuj = new DodajEdytujOkno("Edytuj");
-
-            if (oknoDodajEdytuj.ShowDialog() == DialogResult.OK)
-            {
-                
-            }
-        }
-
         private void szukajButton_Click(object sender, EventArgs e)
         {
             var listaFiltrowana = sqlContext.Uczniowie.Include(x => x.Klasa);
@@ -183,9 +155,55 @@ namespace MiniDziennik
                 Klasa = x.Klasa.NazwaKlasy,
                 RokUrodzenia = x.RokUrodzenia
             }).ToList();
-            
-        }
 
+        }
+        private void dodajButton_Click(object sender, EventArgs e)
+        {
+            DodajEdytujOkno oknoDodajEdytuj = new DodajEdytujOkno("Dodaj");
+
+            if(oknoDodajEdytuj.ShowDialog() == DialogResult.OK)
+            {
+                sqlContext.Uczniowie.Add(new Uczniowie()
+                {
+                    Imie = oknoDodajEdytuj.Imie,
+                    Nazwisko = oknoDodajEdytuj.Nazwisko,
+                    KlasaId = oknoDodajEdytuj.KlasaId,
+                    RokUrodzenia = oknoDodajEdytuj.RokUrodzenia
+                }); 
+                sqlContext.SaveChanges();
+            }
+
+        }
+        private void edytujButton_Click(object sender, EventArgs e)
+        {
+            DodajEdytujOkno oknoDodajEdytuj = new DodajEdytujOkno("Edytuj");
+            Klasa klasyUczniow = klasyComboBox.SelectedItem as Klasa;
+            String imieUcznia = imieTextBox.Text;
+            String nazwiskoUcznia = nazwiskoTextBox.Text;
+            int rokUrodzenia = (int)dataUrodzeniaNumeric.Value;
+            String rokUrodzeniaStr = dataUrodzeniaNumeric.Text;
+            if (oknoDodajEdytuj.ShowDialog() == DialogResult.OK)
+            {
+                sqlContext.Uczniowie.Add(new Uczniowie()
+                {
+                    Imie = oknoDodajEdytuj.Imie,
+                    Nazwisko = oknoDodajEdytuj.Nazwisko,
+                    KlasaId = oknoDodajEdytuj.KlasaId,
+                    RokUrodzenia = oknoDodajEdytuj.RokUrodzenia
+                });
+                sqlContext.SaveChanges();
+            }
+        } //TODO
+        private void usunButton_Click(object sender, EventArgs e)
+        {
+            UsunUcznia oknoUsunUcznia = new UsunUcznia();
+            Uczniowie uczen = new Uczniowie();
+            if (oknoUsunUcznia.ShowDialog() == DialogResult.OK)
+            {
+                //sqlContext.Uczniowie.Remove(uczen);
+                sqlContext.SaveChanges();
+            }
+        }
         private void dodajKlaseButton_Click(object sender, EventArgs e)
         {
             OknoDodajKlase oknoDodajKlase = new OknoDodajKlase();
