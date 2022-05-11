@@ -14,8 +14,10 @@ namespace MiniDziennik.Okienka
 {
     public partial class DodajEdytujOkno : Form
     {
+        
         SqlContext sqlContext;
-        public String Imie { get {
+        public String Imie { 
+            get {
                 return imieTextBoxDE.Text;
             } }
         public String Nazwisko
@@ -46,8 +48,10 @@ namespace MiniDziennik.Okienka
                 return sqlContext.Klasa.Where(k => k.Id == klasaId.Id).FirstOrDefault().Id;
             }
          }
+
         
-        public DodajEdytujOkno(String guzik)
+
+        public DodajEdytujOkno(String guzik, Uczniowie uczen)
         {
             sqlContext = new SqlContext();
             InitializeComponent();
@@ -75,7 +79,15 @@ namespace MiniDziennik.Okienka
                 MessageBox.Show("Uzupełnij!!");
             }
         }
-
+        private void EdytujUcznia(Uczniowie uczen)
+        {
+   
+                imieTextBoxDE.Text = uczen.Imie;
+                nazwiskoTextBoxDE.Text = uczen.Nazwisko;
+                klasaComboBoxDE.SelectedItem = uczen.Klasa;
+                rokUrodzeniaNumericDE.Value = uczen.RokUrodzenia;
+            
+        }
         private void anulujButtonDE_Click(object sender, EventArgs e)
         {
             Close();

@@ -159,7 +159,7 @@ namespace MiniDziennik
         }
         private void dodajButton_Click(object sender, EventArgs e)
         {
-            DodajEdytujOkno oknoDodajEdytuj = new DodajEdytujOkno("Dodaj");
+            DodajEdytujOkno oknoDodajEdytuj = new DodajEdytujOkno("Dodaj", new Uczniowie());
 
             if(oknoDodajEdytuj.ShowDialog() == DialogResult.OK)
             {
@@ -176,33 +176,29 @@ namespace MiniDziennik
         }
         private void edytujButton_Click(object sender, EventArgs e)
         {
-            DodajEdytujOkno oknoDodajEdytuj = new DodajEdytujOkno("Edytuj");
-            Klasa klasyUczniow = klasyComboBox.SelectedItem as Klasa;
-            String imieUcznia = imieTextBox.Text;
-            String nazwiskoUcznia = nazwiskoTextBox.Text;
-            int rokUrodzenia = (int)dataUrodzeniaNumeric.Value;
-            String rokUrodzeniaStr = dataUrodzeniaNumeric.Text;
+            UczniowieKlasy wybranyUczen = (tabelaUczniowGridView.CurrentRow.DataBoundItem as UczniowieKlasy);
+            Uczniowie edytowanyUczen = sqlContext.Uczniowie.First(x => x.Id == wybranyUczen.Id);
+
+            DodajEdytujOkno oknoDodajEdytuj = new DodajEdytujOkno("Edytuj" , edytowanyUczen);
+
             if (oknoDodajEdytuj.ShowDialog() == DialogResult.OK)
             {
-                sqlContext.Uczniowie.Add(new Uczniowie()
-                {
-                    Imie = oknoDodajEdytuj.Imie,
-                    Nazwisko = oknoDodajEdytuj.Nazwisko,
-                    KlasaId = oknoDodajEdytuj.KlasaId,
-                    RokUrodzenia = oknoDodajEdytuj.RokUrodzenia
-                });
+                
+                sqlContext.Update(wybranyUczen.Imie);
+                sqlContext.Update(wybranyUczen.Nazwisko);
+                sqlContext.Update(wybranyUczen.RokUrodzenia);
+                sqlContext.Update(wybranyUczen.Klasa);
                 sqlContext.SaveChanges();
             }
-        } //TODO
+        } 
         private void usunButton_Click(object sender, EventArgs e)
         {
-            UsunUcznia oknoUsunUcznia = new UsunUcznia();
-            Uczniowie uczen = new Uczniowie();
-            if (oknoUsunUcznia.ShowDialog() == DialogResult.OK)
-            {
-                //sqlContext.Uczniowie.Remove(uczen);
-                sqlContext.SaveChanges();
-            }
+            UczniowieKlasy wybranyUczen = (tabelaUczniowGridView.CurrentRow.DataBoundItem as UczniowieKlasy);
+            Uczniowie edytowanyUczen = sqlContext.Uczniowie.First(x => x.Id == wybranyUczen.Id);
+
+            DialogResult dialogResult = MessageBox.Show("Czy na pewno chcesz usunąć ucznia?", "Usunięcie studenta", MessageBoxButtons.YesNo);
+            sqlContext.Uczniowie.Remove(edytowanyUczen);
+            sqlContext.SaveChanges();
         }
         private void dodajKlaseButton_Click(object sender, EventArgs e)
         {
@@ -218,7 +214,7 @@ namespace MiniDziennik
                 UzupelnijListeKlas();
             }
         }
-
         
+
     }
 }
